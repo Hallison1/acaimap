@@ -1,2 +1,2 @@
 # atividade
-atividade avaliativa CRUD
+App em kotlin, lojas de açai
