@@ -15,6 +15,7 @@ import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
 
+    lateinit var name: EditText
     lateinit var email: EditText
     lateinit var password: EditText
 
@@ -22,6 +23,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        name = findViewById(R.id.name)
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
 
@@ -35,7 +37,7 @@ class RegisterActivity : AppCompatActivity() {
     fun createAccount() {
 
         var account = Account()
-        account.name = "Dirceu Belém"
+        account.name = name.text.toString()
         account.email = email.text.toString()
         account.password = password.text.toString()
 
