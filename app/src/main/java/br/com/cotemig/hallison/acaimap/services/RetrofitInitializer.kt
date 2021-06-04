@@ -10,8 +10,18 @@ class RetrofitInitializer {
     addConverterFactory(GsonConverterFactory.create()).
     build()
 
+    private val retrofit2 = Retrofit.Builder().
+    baseUrl("https://run.mocky.io/v3/").
+    addConverterFactory(GsonConverterFactory.create()).
+    build()
+
+
     fun accountService() : AccountService{
         return retrofit.create(AccountService::class.java)
+    }
+
+    fun vitrineService(): VitrineService{
+        return retrofit2.create(VitrineService::class.java)
     }
 
 

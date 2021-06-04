@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/content"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
         <ImageView
@@ -28,7 +31,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/endereço"
+            android:id="@+id/endereco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
@@ -37,23 +40,23 @@
             android:fontFamily="@font/roboto_light"
             android:textColor="@color/user"
             android:textSize="13sp" />
+    </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/gallery"
-            android:layout_width="match_parent"
-            android:layout_height="246dp"
-            android:layout_below="@id/endereço"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/picture" />
-
-    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/acaiList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"/>
 
     <View
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="1px"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/content"
         android:background="@color/roxo" />
 
 
-</RelativeLayout>
+</LinearLayout>

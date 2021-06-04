@@ -4,11 +4,24 @@
     android:layout_height="match_parent"
     android:background="@color/lighty_gray">
 
+
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home em construção"
-        android:layout_centerInParent="true"
-        android:textSize="50dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/sourcesanssrosemibolditalic"
+        android:text="AÇAI"
+        android:textColor="@color/lilas"
+        android:textSize="40sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vitrineList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titulo"
+        android:layout_marginHorizontal="20dp" />
 
 </RelativeLayout>

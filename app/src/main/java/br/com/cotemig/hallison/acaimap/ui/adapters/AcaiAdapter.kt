@@ -7,17 +7,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cotemig.hallison.acaimap.R
-import br.com.cotemig.hallison.acaimap.model.Loja
+import br.com.cotemig.hallison.acaimap.model.Acai
 import com.bumptech.glide.Glide
 
-class AcaiAdapter (var list: List<Loja>) :
-        RecyclerView.Adapter<AcaiAdapter.LojaHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LojaHolder {
+class AcaiAdapter (var list: List<Acai>) :
+        RecyclerView.Adapter<AcaiAdapter.AcaiHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AcaiHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return LojaHolder(inflater, parent)
+        return AcaiHolder(inflater, parent)
     }
 
-    override fun onBindViewHolder(holder: LojaHolder, position: Int) {
+    override fun onBindViewHolder(holder: AcaiHolder, position: Int) {
         holder.bind(list[position])
     }
 
@@ -26,26 +26,21 @@ class AcaiAdapter (var list: List<Loja>) :
     }
 
 
-    class LojaHolder(inflater: LayoutInflater, parent: ViewGroup) :
-        RecyclerView.ViewHolder(inflater.inflate(R.layout.item_vitrine, parent, false)) {
+    class AcaiHolder(inflater: LayoutInflater, parent: ViewGroup) :
+        RecyclerView.ViewHolder(inflater.inflate(R.layout.item_acai, parent, false)) {
         private var nameView: TextView? = null
-        private var enderecoView: TextView? = null
         private var pictureView: ImageView? = null
-        private var recyclerView: RecyclerView? = null
 
         init {
-            nameView = itemView.findViewById(R.id.name)
-            enderecoView = itemView.findViewById(R.id.endereco)
-            pictureView = itemView.findViewById(R.id.picture)
-            recyclerView = itemView.findViewById(R.id.acaiList)
+            nameView = itemView.findViewById(R.id.tipoAcai)
+            pictureView = itemView.findViewById(R.id.acaiImage)
         }
 
-        fun bind(loja: Loja) {
-            nameView?.text = loja.name
-            enderecoView?.text = loja.endereco
+        fun bind(acai: Acai) {
+            nameView?.text = acai.tipo
             Glide
                 .with(itemView)
-                .load(loja.picture)
+                .load(acai.imagem)
                 .centerCrop()
                 .placeholder(R.drawable.user)
                 .into(pictureView!!);

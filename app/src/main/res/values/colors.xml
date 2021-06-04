@@ -13,6 +13,11 @@
     <color name="marronRoxo">#854d58</color>
     <color name="lighty_gray">#f5f5f5</color>
     <color name="lilas">#714291</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="text">#292f33</color>
+    <color name="user">#8899a6</color>
+    <color name="tag">#2196f3</color>
+    <color name="line">#eaeff2</color>
 
 
 
