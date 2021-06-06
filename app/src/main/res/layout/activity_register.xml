@@ -79,7 +79,7 @@
         android:layout_below="@+id/password"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/entrar"
+        android:text="@string/cadastrar"
         android:background="@color/roxo"
         android:textColor="@color/white"/>
 

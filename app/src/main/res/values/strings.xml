@@ -30,7 +30,8 @@
     <string name="cep_account">Cep</string>
     <string name="button_account">Consultar Cep</string>
     <string name="cidade_account">Cidade</string>
-    <string name="uf_account">uf</string>
+    <string name="uf_account">UF</string>
+    <string name="cadastrar">CADASTRAR</string>
 
 
 </resources>

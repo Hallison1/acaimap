@@ -32,7 +32,6 @@ class MyAccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         var view = inflater.inflate(R.layout.fragment_myaccount, container, false)
         cep_text = view.findViewById(R.id.cep_text)
         button_consultar = view.findViewById(R.id.button_consultar)
@@ -40,34 +39,7 @@ class MyAccountFragment : Fragment() {
         uf_account = view.findViewById(R.id.uf_account)
 
         button_consultar.setOnClickListener {
-            val call = RetrofitInitializer().apiRetrofitServiceJSON().getEnderecoByJSON(cep_text.text.toString())
-            call.enqueue(object : Callback<Endereco> {
-
-                /* Caso a resposta seja positiva extraimos o objeto da resposta e exibimos o resultado na tela */
-                override fun onResponse(call: Call<Endereco>, response: Response<Endereco>) {
-
-                    response.let {
-                        val endereco: Endereco? = it.body()
-
-                        if (endereco == null) {
-                            cidade_account.text = String.format("Cep inválido!")
-
-                        } else {
-                            cidade_account.text =  String.format("Cidade: %s", endereco.localidade)
-                            uf_account.text =  String.format("UF: %s", endereco.uf)
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<Endereco>?, t: Throwable?) {
-                    MaterialDialog.Builder(context!!)
-                        .theme(Theme.LIGHT)
-                        .title(R.string.ops)
-                        .content(R.string.generic_error)
-                        .positiveText(R.string.button_ok)
-                        .show()
-                }
-            })
+            getCEP()
         }
 
         return view
@@ -79,5 +51,36 @@ class MyAccountFragment : Fragment() {
         }
     }
 
+    fun getCEP(){
+
+        val call = RetrofitInitializer().apiRetrofitServiceJSON().getEnderecoByJSON(cep_text.text.toString())
+        call.enqueue(object : Callback<Endereco> {
+
+            /* Caso a resposta seja positiva extraimos o objeto da resposta e exibimos o resultado na tela */
+            override fun onResponse(call: Call<Endereco>, response: Response<Endereco>) {
+
+                response.let {
+                    val endereco: Endereco? = it.body()
+
+                    if (endereco == null) {
+                        cidade_account.text = String.format("Cep inválido!")
+
+                    } else {
+                        cidade_account.text =  String.format("Cidade: %s", endereco.localidade)
+                        uf_account.text =  String.format("UF: %s", endereco.uf)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<Endereco>?, t: Throwable?) {
+                MaterialDialog.Builder(context!!)
+                    .theme(Theme.LIGHT)
+                    .title(R.string.ops)
+                    .content(R.string.generic_error)
+                    .positiveText(R.string.button_ok)
+                    .show()
+            }
+        })
+    }
 
 }

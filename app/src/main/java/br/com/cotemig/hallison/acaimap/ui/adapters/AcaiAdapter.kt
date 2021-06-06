@@ -25,7 +25,6 @@ class AcaiAdapter (var list: List<Acai>) :
         return list.size
     }
 
-
     class AcaiHolder(inflater: LayoutInflater, parent: ViewGroup) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.item_acai, parent, false)) {
         private var nameView: TextView? = null

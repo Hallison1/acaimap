@@ -18,6 +18,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var name: EditText
     lateinit var email: EditText
     lateinit var password: EditText
+    lateinit var create: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class RegisterActivity : AppCompatActivity() {
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
 
-        var create = findViewById<Button>(R.id.create)
+        create = findViewById(R.id.create)
 
         create.setOnClickListener {
             createAccount()

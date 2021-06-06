@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
     fun showHome() {
         var intent = Intent(this, HomeActivity::class.java)
-       // intent.putExtra("email", email.text.toString())
+        //intent.putExtra("email", email.text.toString())
         startActivity(intent)
         finish()
     }

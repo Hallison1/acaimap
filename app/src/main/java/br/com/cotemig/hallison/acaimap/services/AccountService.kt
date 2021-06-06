@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface AccountService {
 
-    @POST("v1/account")
+    @POST("account")
     fun create(@Body account: Account): Call<Account>
 
     @POST("account/forgot")
