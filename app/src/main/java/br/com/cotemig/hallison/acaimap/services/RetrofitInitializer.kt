@@ -15,6 +15,10 @@ class RetrofitInitializer {
     addConverterFactory(GsonConverterFactory.create()).
     build()
 
+    private val retrofit3 = Retrofit.Builder().
+    baseUrl("https://viacep.com.br/ws/").
+            addConverterFactory(GsonConverterFactory.create()).
+    build()
 
     fun accountService() : AccountService{
         return retrofit.create(AccountService::class.java)
@@ -22,6 +26,10 @@ class RetrofitInitializer {
 
     fun vitrineService(): VitrineService{
         return retrofit2.create(VitrineService::class.java)
+    }
+
+    fun apiRetrofitServiceJSON(): APIRetrofitService {
+        return retrofit3.create(APIRetrofitService::class.java)
     }
 
 

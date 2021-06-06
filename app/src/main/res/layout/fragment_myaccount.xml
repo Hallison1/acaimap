@@ -4,11 +4,100 @@
     android:layout_height="match_parent"
     android:background="@color/lighty_gray">
 
-    <TextView
+    <ImageView
+        android:id="@+id/profile1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account em construção"
-        android:textSize="50dp"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/photo" />
+
+    <TextView
+        android:id="@+id/nome_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="45dp"
+        android:fontFamily="@font/sourcesansprobold"
+        android:text="@string/nome_account"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/nome_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/nome_account"
+        android:layout_marginHorizontal="20dp" />
+
+    <TextView
+        android:id="@+id/email_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nome_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/sourcesansprobold"
+        android:text="@string/email_account"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/email_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/email_account"
+        android:layout_marginHorizontal="20dp" />
+
+    <TextView
+        android:id="@+id/cep_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/sourcesansprobold"
+        android:text="@string/cep_account"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/cep_text"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/cep_account"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button_consultar"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/email_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/cep_text"
+        android:background="@color/roxo"
+        android:text="@string/button_account"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/cidade_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_consultar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/sourcesansprobold"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/uf_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cidade_account"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/sourcesansprobold"
+        android:textSize="20sp" />
+
 
 </RelativeLayout>

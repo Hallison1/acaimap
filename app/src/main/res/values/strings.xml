@@ -25,5 +25,12 @@
     <string name="nome">Nome</string>
     <string name="em_contru_o">Em Contrução</string>
 
+    <string name="nome_account">Nome</string>
+    <string name="email_account">Email</string>
+    <string name="cep_account">Cep</string>
+    <string name="button_account">Consultar Cep</string>
+    <string name="cidade_account">Cidade</string>
+    <string name="uf_account">uf</string>
+
 
 </resources>
