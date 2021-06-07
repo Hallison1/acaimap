@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import br.com.cotemig.hallison.acaimap.R
 import br.com.cotemig.hallison.acaimap.model.Account
+import br.com.cotemig.hallison.acaimap.model.Endereco
 import br.com.cotemig.hallison.acaimap.services.RetrofitInitializer
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.Theme
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var email: EditText
     lateinit var password: EditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,13 +54,18 @@ class MainActivity : AppCompatActivity() {
         account.email = email.text.toString()
         account.password = password.text.toString()
 
+
         var s = RetrofitInitializer().accountService()
         var call = s.auth(account)
 
         call.enqueue(object : retrofit2.Callback<Account>{
             override fun onResponse(call: Call<Account>, response: Response<Account>) {
                 if (response.code() == 200) {
-                   showHome()
+                    response.body()?.let {
+                        var token: String = it.token
+                        showHome(token)
+                    }
+
                 }
             }
 
@@ -74,9 +81,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun showHome() {
+    fun showHome(token: String) {
         var intent = Intent(this, HomeActivity::class.java)
-        //intent.putExtra("email", email.text.toString())
+        intent.putExtra("token", token)
         startActivity(intent)
         finish()
     }

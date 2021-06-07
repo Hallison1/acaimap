@@ -18,4 +18,7 @@ interface AccountService {
     @POST("account/auth")
     fun auth(@Body account: Account): Call<Account>
 
+    @GET("account/me")
+    fun getAccount(@Body account: Account): Call<Account>
+
 }

@@ -26,6 +26,7 @@ class MyAccountFragment : Fragment() {
     lateinit var button_consultar: Button
     lateinit var cidade_account: TextView
     lateinit var uf_account: TextView
+    lateinit var token: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +38,9 @@ class MyAccountFragment : Fragment() {
         button_consultar = view.findViewById(R.id.button_consultar)
         cidade_account = view.findViewById(R.id.cidade_account)
         uf_account = view.findViewById(R.id.uf_account)
+        token = view.findViewById(R.id.token)
 
+        getAccount()
         button_consultar.setOnClickListener {
             getCEP()
         }
@@ -81,6 +84,9 @@ class MyAccountFragment : Fragment() {
                     .show()
             }
         })
+    }
+
+    fun getAccount(){
     }
 
 }

@@ -1,18 +1,22 @@
 package br.com.cotemig.hallison.acaimap.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import br.com.cotemig.hallison.acaimap.R
 import br.com.cotemig.hallison.acaimap.ui.fragments.HomeFragment
 import br.com.cotemig.hallison.acaimap.ui.fragments.MyAccountFragment
 
 class HomeActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        var tok = intent.getStringExtra("token")
+        val args = Bundle()
+        args.putString("tok", tok)
 
         setFragment(HomeFragment.newInstance())
 
@@ -20,8 +24,10 @@ class HomeActivity : AppCompatActivity() {
         home.setOnClickListener {
             setFragment(HomeFragment.newInstance())
         }
+
         var myAccount = findViewById<ImageView>(R.id.myAccount)
         myAccount.setOnClickListener {
+
             setFragment(MyAccountFragment.newInstance())
         }
     }
